@@ -3,7 +3,7 @@
 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
+          zoom: 12,
           center: {lat: 0, lng: 0}
         });
         codeAddress(map);
@@ -206,12 +206,12 @@
               
               geocoder.geocode({'address': addres}, function(results, status) {
                 if (status === 'OK') {
-                  map.setCenter(results[0].geometry.location);
+                  map.panTo(results[0].geometry.location);
                   setMapOnAll(null); 
 
                   function setMapOnAll(map) {
-                    for (var i = 0; i < markers.length; i++) {
-                    markers[i].setMap(map);
+                  for (var j = 0; j < markers.length; j++) {
+                    markers[j].setMap(map);
                   }
                 }
                   var marker = new google.maps.Marker({
